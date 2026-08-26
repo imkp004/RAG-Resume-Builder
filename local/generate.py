@@ -58,6 +58,17 @@ MAX_JSON_RETRIES = 4
 # Where step 5's output gets saved.
 OUTPUT_DIR = Path(__file__).parent / "output"
 
+# A "well covered" claim gets flagged for manual review when fewer than
+# this fraction of the requirement's own distinctive words actually
+# appear in the excerpt being cited. Set deliberately low (0.25): a real,
+# correct match still won't repeat most of a requirement's wording, so
+# demanding a high overlap produces constant false alarms. What reliably
+# separates a real match from a bogus one is whether ANY specific term
+# lines up at all - a genuine match usually hits at least one or two, a
+# bogus one typically hits zero. Raise this if bad claims slip through;
+# lower it if legitimate claims keep getting flagged.
+RELEVANCE_WARNING_THRESHOLD = 0.25
+
 
 # ---------------------------------------------------------------------------
 # Prompts
@@ -102,8 +113,10 @@ for it.
 - For every single item you list as well covered, you must be able to \
 name the exact excerpt title above that supports it, AND quote the \
 specific phrase from that excerpt's actual text that supports it - not \
-a paraphrase, the real words as they appear. If you cannot point to \
-real, specific words in an excerpt that support a requirement, that \
+a paraphrase, the real words as they appear. A generic quote about the \
+same broad topic is NOT enough - the quote must speak to this specific \
+requirement, not just a nearby one. If you cannot point to real, \
+specific words in an excerpt that support a requirement, that \
 requirement belongs in gaps, not in well_covered_requirements. Do not \
 match on a word appearing in both the job description and an excerpt \
 if the underlying concepts are actually different things (for example: \
@@ -112,6 +125,21 @@ Management, cloud permissions - it is NOT the same thing as Red Hat \
 Identity Management, a Linux directory service, even though both use \
 the word "identity" or the acronym "IAM"). Never list a requirement as \
 well covered just because it appeared in the job description.
+- Never credit the candidate with holding a specific named \
+certification (RHCSA, CCNA, a specific vendor certification, etc.) \
+unless a supplied excerpt explicitly names that exact certification. A \
+general training program or unrelated skill mention does NOT mean the \
+candidate holds a specific certification - if the exact certification \
+isn't named in an excerpt, it is a gap, full stop.
+- Purely administrative or eligibility items - citizenship or work \
+authorization status, language fluency, willingness to travel, on-site \
+availability, physical requirements, and similar - are almost never \
+addressed by a career history at all. Do not list these as well \
+covered, and do not invent a source for them. Only mention one of these \
+at all (in either list) if a supplied excerpt explicitly and directly \
+addresses that exact item (for example, an active security clearance \
+genuinely stated in an excerpt is fair game either way). Otherwise, \
+leave that requirement out of both lists entirely rather than guessing.
 - The fit score must be grounded in what you actually found, not in how \
 the candidate might generally seem. A 9 or 10 should be rare, reserved \
 for cases with no high-severity gaps at all. Each high-severity gap \
@@ -345,12 +373,112 @@ def _word_overlap_ratio(quote, source_text):
     return matched / len(quote_words)
 
 
+# Generic words that show up in almost every job requirement and carry
+# no real distinguishing signal (e.g. "experience", "strong", "ability").
+# Excluding these stops the requirement-relevance check below from being
+# fooled by two sentences that share only filler words in common.
+_FILLER_WORDS = {
+    "experience", "experienced", "knowledge", "ability", "abilities",
+    "skills", "skill", "familiarity", "understanding", "background",
+    "strong", "proven", "hands", "solid", "demonstrated", "years",
+    "working", "candidate", "candidates", "role", "position", "team",
+    "environment", "environments", "requirements", "requirement",
+    "required", "preferred", "plus", "must", "have", "having", "with",
+    "and", "the", "for", "using", "including", "such", "like",
+}
+
+
+def _significant_terms(text):
+    """Pulls out the words in `text` that actually carry meaning for
+    matching purposes: recognized acronyms (kept regardless of length,
+    e.g. "AWS", "SSH", "RHCSA") plus longer words that aren't generic
+    filler."""
+    tokens = re.findall(r"[A-Za-z][A-Za-z0-9+/\-]*", text)
+    terms = []
+    for token in tokens:
+        lowered = token.lower()
+        if token.isupper() and len(token) >= 2:
+            terms.append(lowered)
+        elif len(token) > 4 and lowered not in _FILLER_WORDS:
+            terms.append(lowered)
+    return terms
+
+
+def _requirement_grounding_ratio(requirement, source_text):
+    """Returns the fraction of the REQUIREMENT's own distinctive terms
+    that actually appear in the cited excerpt's text. This is the check
+    that catches a real, accurately-quoted sentence being used to
+    support the wrong requirement - the quote can be 100% real and this
+    ratio can still be near zero, because the specific thing being
+    claimed (storage, a named certification, a specific tool) simply
+    isn't in that excerpt at all."""
+    req_terms = _significant_terms(requirement)
+    if not req_terms:
+        # Requirement was too generic/short to meaningfully check - don't
+        # manufacture a false alarm out of nothing.
+        return 1.0
+
+    source_lower = source_text.lower()
+    matched = sum(1 for term in req_terms if term in source_lower)
+    return matched / len(req_terms)
+
+
+def _looks_like_certification_claim(requirement):
+    """Detects requirements that are about holding a specific named
+    credential. These get a stricter check than ordinary skill claims,
+    because falsely claiming a certification you don't hold is a much
+    more serious error than overstating a general skill - it's a
+    concrete, verifiable, checkable credential."""
+    lowered = requirement.lower()
+    cert_signals = [
+        "certification", "certifications", "certified", "certificate",
+        "rhcsa", "rhce", "ccna", "ccnp", "comptia", "security+",
+        "linux+", "network+", "aws certified", "azure certified",
+        "cissp", "pmp", "ckad", "cka",
+    ]
+    return any(signal in lowered for signal in cert_signals)
+
+
+def _certification_is_genuinely_supported(requirement, source_text):
+    """A certification claim only counts as supported if the excerpt
+    actually names that specific credential. Sharing a generic word like
+    'cloud' or 'network' with a training-program blurb is not evidence
+    the candidate holds the certification."""
+    source_lower = source_text.lower()
+
+    # Distinctive terms only - strip out the generic scaffolding words
+    # that appear in nearly every certification name, since matching on
+    # those is exactly how a bogus claim sneaks through.
+    generic_cert_words = {
+        "certification", "certifications", "certified", "certificate",
+        "cloud", "network", "engineer", "administrator", "associate",
+        "professional", "practitioner", "data", "storage", "systems",
+        "system", "specialist",
+    }
+    distinctive = [
+        term for term in _significant_terms(requirement)
+        if term not in generic_cert_words
+    ]
+
+    if not distinctive:
+        # Nothing distinctive to check against - can't verify it, so
+        # treat it as unsupported rather than assuming the best.
+        return False
+
+    return any(term in source_lower for term in distinctive)
+
+
 def _validate_well_covered_grounding(gap_result, chunks):
-    """Checks every well_covered claim's supporting_detail against the
-    REAL text of the excerpt it claims to cite. This is what catches
-    cases like citing an AWS IAM excerpt as if it supported a Red Hat
-    Identity Management requirement - the title exists, but the actual
-    words don't back up the claim."""
+    """Checks every well_covered claim two ways against the REAL text of
+    the excerpt it claims to cite:
+      1. Is the quoted detail actually real text from that excerpt
+         (catches fabricated quotes)?
+      2. Do the requirement's OWN distinctive words actually show up in
+         that excerpt (catches a real, accurate quote being misapplied
+         to a requirement it doesn't actually address - the far more
+         common failure in practice)?
+    Either check failing is enough to flag the claim for manual review.
+    """
     chunks_by_title = {
         (c.get("title") or "").strip().lower(): c for c in chunks
     }
@@ -376,12 +504,35 @@ def _validate_well_covered_grounding(gap_result, chunks):
             chunk.get("text", ""),
             chunk.get("skills", ""),
         ])
-        if _word_overlap_ratio(detail, source_text) < 0.5:
+
+        quote_score = _word_overlap_ratio(detail, source_text)
+        relevance_score = _requirement_grounding_ratio(requirement, source_text)
+
+        if quote_score < 0.5:
             warnings.append(
                 f"\"{requirement}\" cites \"{excerpt_title}\", but the "
                 f"quoted detail (\"{detail}\") doesn't clearly match that "
-                "excerpt's actual text. Possibly ungrounded - verify this "
+                "excerpt's actual text. Possibly fabricated - verify this "
                 "one yourself before trusting it."
+            )
+        elif _looks_like_certification_claim(requirement):
+            if not _certification_is_genuinely_supported(requirement, source_text):
+                warnings.append(
+                    f"CERTIFICATION CLAIM: \"{requirement}\" cites "
+                    f"\"{excerpt_title}\", but that excerpt never names "
+                    "this specific certification. Do NOT put this on a "
+                    "resume unless you actually hold it - claiming a "
+                    "credential you don't have is a serious problem, not "
+                    "a wording issue."
+                )
+        elif relevance_score < RELEVANCE_WARNING_THRESHOLD:
+            warnings.append(
+                f"\"{requirement}\" cites \"{excerpt_title}\" with a real "
+                f"quote (\"{detail}\"), but that excerpt doesn't actually "
+                "seem to be about this specific requirement - the "
+                "specific thing being asked for doesn't show up in that "
+                "excerpt at all. Likely a real quote applied to the "
+                "wrong requirement - verify this one yourself."
             )
 
     if warnings:

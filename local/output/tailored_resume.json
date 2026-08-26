@@ -1,83 +1,79 @@
 {
-  "summary": "Results-driven IT professional with expertise in cloud architecture, Linux administration, and DevOps, utilizing Python, scripting languages, and automation tools to drive efficiency and reliability in cloud and on-premises environments.",
+  "summary": "Results-driven systems engineer with hands-on experience in Linux, networking, and cloud engineering, delivering reliable and efficient technical platforms. Proven track record of designing and deploying scalable architectures, implementing security-first solutions, and collaborating with cross-functional teams.",
   "tailored_bullets": [
-    {
-      "source_title": "Cloud and DevOps Engineer Training Program",
-      "section": "Training",
-      "original_text": "Completed hands-on training focused on AWS cloud architecture, Linux administration, Terraform, Docker, Kubernetes, Ansible, GitHub Actions, CI/CD pipelines, networking, monitoring, and production DevOps workflows.",
-      "tailored_text": "Completed comprehensive training in cloud architecture, Linux administration, and DevOps tools, including Terraform, Docker, Kubernetes, and GitHub Actions, to drive efficient cloud deployments."
-    },
-    {
-      "source_title": "Cloud and Infrastructure-as-Code Skill Summary",
-      "section": "Skills Summary",
-      "original_text": "Broad hands-on experience across core AWS services (compute, storage, networking, database, messaging) and Infrastructure as Code tooling, with an emphasis on Terraform module design and remote state management for team-based infrastructure workflows.",
-      "tailored_text": "Proven expertise in AWS services, including compute, storage, networking, and database management, as well as Terraform module design and remote state management for scalable infrastructure deployments."
-    },
     {
       "source_title": "Linux, Security, and Networking Skill Summary",
       "section": "Skills Summary",
       "original_text": "Deep, hands-on Linux systems administration experience combined with practical networking (DNS, routing, load balancing, firewalls) and a security-first mindset applied specifically to IAM least-privilege design and enforcement.",
-      "tailored_text": "Extensive experience in Linux systems administration, networking, and security, with a focus on IAM least-privilege design and enforcement to ensure secure and efficient cloud deployments."
+      "tailored_text": "Demonstrated expertise in Linux systems administration, networking fundamentals, and security principles, with a focus on implementing IAM least-privilege design and enforcement."
+    },
+    {
+      "source_title": "Cloud and DevOps Engineer Training Program",
+      "section": "Training",
+      "original_text": "Completed hands-on training focused on AWS cloud architecture, Linux administration, Terraform, Docker, Kubernetes, Ansible, GitHub Actions, CI/CD pipelines, networking, monitoring, and production DevOps workflows.",
+      "tailored_text": "Completed comprehensive training in cloud architecture, Linux administration, and DevOps tools, including Terraform, Docker, Kubernetes, and GitHub Actions."
     },
     {
       "source_title": "Applied Technical Skills in Military Context",
       "section": "Leadership / Military",
       "original_text": "Utilize Linux administration, networking fundamentals, scripting knowledge, and cloud engineering skills developed through professional experience and advanced technical training.",
-      "tailored_text": "Applied technical skills in cloud engineering, Linux administration, and networking to drive efficient and secure cloud deployments in a military context."
+      "tailored_text": "Applied technical skills in Linux administration, networking, scripting, and cloud engineering, leveraging professional experience and advanced training."
     },
     {
       "source_title": "Multi-Region Highly Available AWS Web Application",
       "section": "Project \u2014 Cloud Architecture",
       "original_text": "Designed and deployed a highly available multi-region AWS application architecture focused on reliability, fault tolerance, and disaster recovery.",
-      "tailored_text": "Designed and deployed a highly available multi-region AWS application architecture, ensuring reliability, fault tolerance, and disaster recovery for critical cloud-based applications."
+      "tailored_text": "Designed and deployed a highly available multi-region AWS application architecture, prioritizing reliability, fault tolerance, and disaster recovery."
     },
     {
-      "source_title": "IAM Compliance Auditor \u2014 Production Debugging and Least-Privilege Security Design",
-      "section": "Project \u2014 Troubleshooting / Security Engineering",
-      "original_text": "Deliberately scoped narrow, least-privilege IAM roles for each Lambda function rather than granting broad permissions to avoid friction, and updated each role's policy explicitly every time the corresponding Lambda's code gained a new capability.",
-      "tailored_text": "Designed and implemented narrow, least-privilege IAM roles for Lambda functions, ensuring secure and efficient cloud deployments while minimizing friction and ensuring policy updates are promptly applied."
+      "source_title": "Containers, CI/CD, and Programming Skill Summary",
+      "section": "Skills Summary",
+      "original_text": "Practical experience containerizing applications and orchestrating them with Kubernetes, building CI/CD pipelines with GitHub Actions and Jenkins, and writing automation and application code primarily in Python and Bash.",
+      "tailored_text": "Gained practical experience in containerization, CI/CD pipeline development, and automation, using tools like Kubernetes, GitHub Actions, and Python."
+    },
+    {
+      "source_title": "Cloud and Infrastructure-as-Code Skill Summary",
+      "section": "Skills Summary",
+      "original_text": "Broad hands-on experience across core AWS services (compute, storage, networking, database, messaging) and Infrastructure as Code tooling, with an emphasis on Terraform module design and remote state management for team-based infrastructure workflows.",
+      "tailored_text": "Demonstrated broad hands-on experience with core AWS services and Infrastructure as Code tooling, focusing on Terraform module design and remote state management."
+    },
+    {
+      "source_title": "Daily Linux System Administration",
+      "section": "Systems Administration",
+      "original_text": "Performed daily Linux system administration including server provisioning, operating system maintenance, package management, user administration, permissions management, SSH configuration, and service troubleshooting.",
+      "tailored_text": "Provided daily Linux system administration, including server provisioning, OS maintenance, and troubleshooting, to ensure system reliability."
     },
     {
       "source_title": "End-to-End CI/CD Deployment Pipeline",
       "section": "Project \u2014 CI/CD / DevOps",
       "original_text": "Designed a complete CI/CD pipeline automating application build, testing, container creation, image publishing, and cloud deployment workflows.",
-      "tailored_text": "Designed and implemented a comprehensive CI/CD pipeline, automating application build, testing, container creation, and cloud deployment workflows to drive efficient and reliable cloud deployments."
-    },
-    {
-      "source_title": "Serverless Event-Driven Processing Pipeline",
-      "section": "Project \u2014 Serverless / Cloud Architecture",
-      "original_text": "Built a scalable event-driven serverless architecture using Amazon S3, AWS Lambda, Amazon SQS, DynamoDB, and SNS notifications.",
-      "tailored_text": "Built a scalable serverless architecture using Amazon S3, AWS Lambda, Amazon SQS, DynamoDB, and SNS notifications, ensuring efficient and reliable event-driven cloud deployments."
-    },
-    {
-      "source_title": "IAM Compliance Auditor \u2014 Architecture and Build",
-      "section": "Project \u2014 Cloud Security / Automation",
-      "original_text": "Designed and built a fully automated, serverless AWS pipeline that audits IAM roles and policies for least-privilege violations.",
-      "tailored_text": "Designed and implemented a fully automated AWS pipeline that audits IAM roles and policies for least-privilege violations, ensuring secure and efficient cloud deployments."
+      "tailored_text": "Designed a comprehensive CI/CD pipeline, automating application build, testing, and cloud deployment workflows."
     },
     {
       "source_title": "Terraform Multi-Environment AWS Infrastructure",
       "section": "Project \u2014 Infrastructure as Code",
       "original_text": "Developed reusable Terraform infrastructure modules to deploy consistent AWS environments across development, staging, and production workloads.",
-      "tailored_text": "Developed reusable Terraform infrastructure modules to deploy consistent AWS environments across development, staging, and production workloads, ensuring efficient and reliable cloud deployments."
+      "tailored_text": "Developed reusable Terraform infrastructure modules to deploy consistent AWS environments across development, staging, and production workloads."
+    },
+    {
+      "source_title": "100-300 Server Linux Fleet Administration",
+      "section": "Systems Administration",
+      "original_text": "Administered and maintained 100\u2013300 enterprise Linux servers across on-premises and cloud environments, supporting Red Hat Enterprise Linux, Ubuntu, Debian, and Amazon Linux operating systems.",
+      "tailored_text": "Administered and maintained a large fleet of Linux servers, supporting multiple operating systems, across on-premises and cloud environments."
     }
   ],
   "skills_highlighted": [
-    "AWS",
     "Linux",
+    "Networking",
+    "Cloud Engineering",
     "Terraform",
-    "Docker",
+    "AWS",
     "Kubernetes",
-    "Ansible",
     "GitHub Actions",
     "CI/CD",
-    "Python",
-    "IAM",
-    "Cloud Architecture",
-    "DevOps",
-    "Linux Administration",
-    "Networking",
+    "Scripting",
     "Security",
-    "Cloud Engineering"
+    "DevOps",
+    "Infrastructure as Code"
   ]
 }

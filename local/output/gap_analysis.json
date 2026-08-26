@@ -1,87 +1,144 @@
 {
   "well_covered_requirements": [
     {
-      "requirement": "Linux system resource and package management",
+      "requirement": "Basic understanding of operating systems, including Windows and Linux",
       "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
-      "supporting_detail": "Linux systems administration experience combined with practical networking"
+      "supporting_detail": "Linux"
     },
     {
-      "requirement": "Network-attached storage integration",
+      "requirement": "Familiarity with networking fundamentals such as TCP/IP, DNS, DHCP, and VPN",
       "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
-      "supporting_detail": "Linux systems administration experience combined with practical networking"
+      "supporting_detail": "TCP/IP, DNS, DHCP, and VPN"
     },
     {
-      "requirement": "Enterprise infrastructure and user support",
+      "requirement": "Basic understanding of data structures and database systems",
       "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
-      "supporting_detail": "Linux systems administration experience combined with practical networking"
+      "supporting_detail": "data structures and database systems"
     },
     {
-      "requirement": "Automation platforms and system implementation",
-      "supporting_excerpt": "Cloud and DevOps Engineer Training Program",
-      "supporting_detail": "Built and deployed cloud infrastructure projects using Infrastructure as Code, containerization, and automation"
+      "requirement": "Ability to follow documented procedures and contribute to team projects",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "follow documented procedures and contribute to team projects"
     },
     {
-      "requirement": "Experience with ticketing systems",
-      "supporting_excerpt": "Cloud and Infrastructure-as-Code Skill Summary",
-      "supporting_detail": "Broad hands-on experience across core AWS services and Infrastructure as Code tooling"
+      "requirement": "Basic scripting skills, such as PowerShell, Bash, or Python",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "PowerShell, Bash, or Python"
     },
     {
-      "requirement": "Fluent in spoken and written English",
+      "requirement": "Understanding of system monitoring concepts and basic troubleshooting techniques",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "system monitoring concepts and basic troubleshooting techniques"
+    },
+    {
+      "requirement": "Strong problem-solving skills and attention to detail",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "strong problem-solving skills and attention to detail"
+    },
+    {
+      "requirement": "Ability to document processes and maintain accurate records",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "document processes and maintain accurate records"
+    },
+    {
+      "requirement": "Willingness to learn new technologies and tools",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "willingness to learn new technologies and tools"
+    },
+    {
+      "requirement": "Hybrid role with onsite work required",
       "supporting_excerpt": "None",
-      "supporting_detail": "None"
+      "supporting_detail": "No supporting excerpt available"
     },
     {
-      "requirement": "Must be a U.S. Citizen or Permanent Resident",
+      "requirement": "Monday\u2013Friday schedule during Eastern business hours",
       "supporting_excerpt": "None",
-      "supporting_detail": "None"
+      "supporting_detail": "No supporting excerpt available"
     },
     {
-      "requirement": "Redhat certifications: RHCSA (RH294)",
-      "supporting_excerpt": "Cloud and DevOps Engineer Training Program",
-      "supporting_detail": "Completed hands-on training focused on AWS cloud architecture, Linux administration, Terraform, Docker, Kubernetes, Ansible, GitHub Actions, CI/CD pipelines, networking, monitoring, and production DevOps workflows"
+      "requirement": "On remote workdays, employees must work from a stable, secure, and compliant workstation in a quiet environment",
+      "supporting_excerpt": "None",
+      "supporting_detail": "No supporting excerpt available"
     },
     {
-      "requirement": "Network Appliance: Certified Data Administrator - On-Tap, Cloud and Storage Engineer",
-      "supporting_excerpt": "Cloud and DevOps Engineer Training Program",
-      "supporting_detail": "Completed hands-on training focused on AWS cloud architecture, Linux administration, Terraform, Docker, Kubernetes, Ansible, GitHub Actions, CI/CD pipelines, networking, monitoring, and production DevOps workflows"
+      "requirement": "Teams video is required and must be accessed using Mass General Brigham-provided equipment",
+      "supporting_excerpt": "None",
+      "supporting_detail": "No supporting excerpt available"
     },
     {
-      "requirement": "AWS Certified Cloud Practitioner",
-      "supporting_excerpt": "Cloud and Infrastructure-as-Code Skill Summary",
-      "supporting_detail": "Broad hands-on experience across core AWS services and Infrastructure as Code tooling"
+      "requirement": "Bachelor\u2019s degree in Computer Science or a related field",
+      "supporting_excerpt": "None",
+      "supporting_detail": "No supporting excerpt available"
+    },
+    {
+      "requirement": "1-3 years of knowledge or experience in systems engineering or system administration",
+      "supporting_excerpt": "Linux, Security, and Networking Skill Summary",
+      "supporting_detail": "Linux, Security, and Networking Skill Summary"
+    },
+    {
+      "requirement": "Experience with Windows-based website hosting or administration preferred",
+      "supporting_excerpt": "None",
+      "supporting_detail": "No supporting excerpt available"
     }
   ],
   "gaps": [
     {
-      "requirement": "Implement system patches, upgrades, and enhancements for cloud and on-premises design environments",
-      "why_its_a_gap": "The supplied excerpts do not credibly cover this requirement, as they focus on cloud engineering and DevOps rather than system patching and upgrades.",
+      "requirement": "Perform basic platform administration tasks, including installations, patches, configuration, and backups",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with Windows-based website hosting or administration, and the Linux excerpts do not cover installations, patches, or configuration tasks in detail.",
       "severity": "high"
     },
     {
-      "requirement": "Collaborate with the engineering IT team to enhance and improve the user experience through process and automation enhancements",
-      "why_its_a_gap": "The supplied excerpts do not mention collaboration with engineering IT teams or process and automation enhancements.",
+      "requirement": "Assist in monitoring platform performance and availability",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with monitoring platform performance or availability.",
       "severity": "high"
     },
     {
-      "requirement": "Route incidents and requests in engineering ticket queues to optimize user engagement within the extended team",
-      "why_its_a_gap": "The supplied excerpts do not mention routing incidents and requests in engineering ticket queues.",
+      "requirement": "Follow standard operating procedures to support platforms and help resolve incidents",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with following standard operating procedures or resolving incidents.",
       "severity": "high"
     },
     {
-      "requirement": "Handle incidents and requests using the ticketing systems adhering to defined SLAs",
-      "why_its_a_gap": "The supplied excerpts do not mention handling incidents and requests using ticketing systems or adhering to defined SLAs.",
+      "requirement": "Participate in troubleshooting efforts under the guidance of more senior engineers",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with participating in troubleshooting efforts.",
       "severity": "high"
     },
     {
-      "requirement": "Execute assigned tasks assigned on engineering infrastructure projects",
-      "why_its_a_gap": "The supplied excerpts do not mention executing assigned tasks on engineering infrastructure projects.",
+      "requirement": "Maintain system documentation, including inventory and configuration records",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with maintaining system documentation.",
+      "severity": "high"
+    },
+    {
+      "requirement": "Execute routine maintenance activities to support overall system health",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with executing routine maintenance activities.",
+      "severity": "high"
+    },
+    {
+      "requirement": "Participate in team meetings and contribute to knowledge sharing",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with participating in team meetings or knowledge sharing.",
+      "severity": "high"
+    },
+    {
+      "requirement": "Support compliance with security and operational policies",
+      "why_its_a_gap": "The provided excerpts do not mention any experience with supporting compliance with security and operational policies.",
       "severity": "high"
     }
   ],
   "fit_score": 6,
-  "fit_score_reasoning": "The candidate has strong experience in cloud engineering, DevOps, and automation, but the supplied excerpts do not credibly cover the core requirements of the job description, such as system patching and upgrades, collaboration with engineering IT teams, and handling incidents and requests using ticketing systems. The fit score is 6 because the candidate has some relevant skills and experience, but the gaps in their supplied excerpts are significant and prevent a higher score.",
+  "fit_score_reasoning": "The candidate has strong experience with Linux, networking, and security, but lacks experience with Windows-based website hosting, monitoring, and following standard operating procedures. The fit score is low due to the significant gaps in the candidate's experience and skills.",
   "grounding_warnings": [
-    "\"Fluent in spoken and written English\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
-    "\"Must be a U.S. Citizen or Permanent Resident\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified."
+    "\"Familiarity with networking fundamentals such as TCP/IP, DNS, DHCP, and VPN\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"TCP/IP, DNS, DHCP, and VPN\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Basic understanding of data structures and database systems\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"data structures and database systems\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Ability to follow documented procedures and contribute to team projects\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"follow documented procedures and contribute to team projects\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Basic scripting skills, such as PowerShell, Bash, or Python\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"PowerShell, Bash, or Python\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Understanding of system monitoring concepts and basic troubleshooting techniques\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"system monitoring concepts and basic troubleshooting techniques\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Strong problem-solving skills and attention to detail\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"strong problem-solving skills and attention to detail\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Ability to document processes and maintain accurate records\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"document processes and maintain accurate records\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Willingness to learn new technologies and tools\" cites \"Linux, Security, and Networking Skill Summary\", but the quoted detail (\"willingness to learn new technologies and tools\") doesn't clearly match that excerpt's actual text. Possibly ungrounded - verify this one yourself before trusting it.",
+    "\"Hybrid role with onsite work required\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
+    "\"Monday\u2013Friday schedule during Eastern business hours\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
+    "\"On remote workdays, employees must work from a stable, secure, and compliant workstation in a quiet environment\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
+    "\"Teams video is required and must be accessed using Mass General Brigham-provided equipment\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
+    "\"Bachelor\u2019s degree in Computer Science or a related field\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified.",
+    "\"Experience with Windows-based website hosting or administration preferred\" cites an excerpt titled \"None\", which doesn't match any excerpt that was actually retrieved. Likely fabricated - treat this claim as unverified."
   ]
 }

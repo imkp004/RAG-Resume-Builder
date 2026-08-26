@@ -1,5 +1,5 @@
 """
-run_step5.py
+main.py
 
 A way to test everything built so far, together: paste a job
 description, this retrieves the most relevant entries from your
@@ -76,10 +76,19 @@ def main():
 
     grounding_warnings = gaps.get("grounding_warnings", [])
     if grounding_warnings:
-        print("\n  ⚠ GROUNDING WARNINGS - the following 'well covered' claims")
-        print("    look questionable and are worth checking by hand:")
-        for w in grounding_warnings:
-            print(f"    - {w}")
+        cert_warnings = [w for w in grounding_warnings if w.startswith("CERTIFICATION CLAIM:")]
+        other_warnings = [w for w in grounding_warnings if not w.startswith("CERTIFICATION CLAIM:")]
+
+        if cert_warnings:
+            print("\n  !! CERTIFICATION WARNINGS - read these carefully:")
+            for w in cert_warnings:
+                print(f"    - {w}")
+
+        if other_warnings:
+            print("\n  ⚠ GROUNDING WARNINGS - the following 'well covered' claims")
+            print("    look questionable and are worth checking by hand:")
+            for w in other_warnings:
+                print(f"    - {w}")
 
     gap_list = gaps.get("gaps", [])
     print("\nGaps:")
